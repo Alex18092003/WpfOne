@@ -1,0 +1,90 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Гороскоп" Height="450" Width="700">
+
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="230"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+         <Grid Grid.RowSpan="3" >
+            <DockPanel>
+        <Image Height="700" Opacity=".2" Source="https://damion.club/uploads/posts/2022-01/1642539014_27-damion-club-p-foni-so-znakami-zodiaka-28.jpg">
+        </Image>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="0"  >
+            <TextBlock Style="{StaticResource tblock}" >Выберите что хотите узнать</TextBlock>
+        </Grid>
+        <Grid Grid.Row="1" >
+            <StackPanel >
+                <ComboBox  Name="CBGoroscop" SelectionChanged="CBGoroscop_SelectionChanged" Style="{StaticResource cbstyle}">
+                    <ComboBox.ToolTip>
+                        <ToolTip>
+                            Нажмите для того, чтобы раскрыть список выбора вариантов
+                        </ToolTip>
+                    </ComboBox.ToolTip>
+                    <ComboBoxItem >Определить свой знак зодиака</ComboBoxItem>
+                    <ComboBoxItem>Определить свой восточный знак зодиака</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel>
+
+                <TextBox Margin="100,80,100,0" Height="30" Width="450" Name="TBzn" Visibility="Collapsed" PreviewTextInput="TBzn_PreviewTextInput">Введите дату
+ 
+                    <TextBox.ToolTip>
+                        <ToolTip>
+                            Введите день вашего рождения
+                        </ToolTip>
+                    </TextBox.ToolTip>
+                </TextBox>
+                <TextBox  Margin="100,80,100,0" Name="TBvost"  Height="30" Width="450" Visibility="Collapsed" PreviewTextInput="TBvost_PreviewTextInput">Введите дату рождения
+                    <TextBox.ToolTip>
+                        <ToolTip>
+                            Введите год вашего рождения
+                        </ToolTip>
+                    </TextBox.ToolTip>
+                </TextBox>
+                <ComboBox Style="{StaticResource cbstyle}"  Margin="100,50,100,0" Name="CBMes" Visibility="Collapsed" SelectionChanged="CBMes_SelectionChanged"  >
+                    <ComboBox.ToolTip>
+                        <ToolTip>
+                           Введите месяц вашего рождения
+                        </ToolTip>
+                    </ComboBox.ToolTip>
+                    <ComboBoxItem >Январь</ComboBoxItem>
+                    <ComboBoxItem>Февраль</ComboBoxItem>
+                    <ComboBoxItem>Март</ComboBoxItem>
+                    <ComboBoxItem>Апрель</ComboBoxItem>
+                    <ComboBoxItem>Май</ComboBoxItem>
+                    <ComboBoxItem>Июнь</ComboBoxItem>
+                    <ComboBoxItem>Июль</ComboBoxItem>
+                    <ComboBoxItem>Август</ComboBoxItem>
+                    <ComboBoxItem>Сентябрь</ComboBoxItem>
+                    <ComboBoxItem>Октябрь</ComboBoxItem>
+                    <ComboBoxItem>Ноябрь</ComboBoxItem>
+                    <ComboBoxItem>Декабрь</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel>
+                <Button Template="{StaticResource btnbutton}"  Name="BTNVvod"  Click="BTNVvod_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Нажмите для того, чтобы узнать ответ
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <TextBlock Style="{StaticResource tblock}" Name="TBOtvet">Ответ:</TextBlock>
+            </StackPanel>
+        </Grid>
+       
+    </Grid>
+</Window>
